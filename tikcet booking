@@ -1,0 +1,212 @@
+module TKT_BKNG(
+    input clk,rst,
+    input [9:0] money_in,
+    input [2:0] source,
+    input [2:0] destination,
+    output reg [9:0] change,
+    output reg [4:0] ticket
+    );
+always@(posedge clk)
+	begin
+		if(rst==1)
+			begin
+				change<=0;
+				ticket<=0;
+			end
+		else
+			begin
+				$display("welcome");
+				if(source==1 && destination==1)
+					begin
+						change<=money_in;
+						$display("collect your change = %d",change);
+						ticket<=0;
+						$display("cannot book ticket from same source and destination");
+					end
+				else if(source==1 && destination==2)
+					begin
+						change<=money_in-10;
+						$display("collect your change = %d",change);
+						ticket<=1;
+						$display("collect your ticket from 1 source to 2 destination ");
+					end
+				else if(source==1 && destination==3)
+					begin
+						change<=money_in-20;
+						ticket<=2;
+					end
+				else if(source==1 && destination==4)
+					begin
+						change<=money_in-30;
+						ticket<=3;
+					end
+				else if(source==1 && destination==5)
+					begin
+						change<=money_in-40;
+						ticket<=4;
+					end
+				else if(source==1 && destination==6)
+					begin
+						change<=money_in-50;
+						ticket<=5;
+					end
+				else if(source==2 && destination==1)
+					begin
+						change<=money_in-10;
+						ticket<=6;
+					end
+				else if(source==2 && destination==2)
+					begin
+						change<=money_in;
+						ticket<=0;
+					end
+				else if(source==2 && destination==3)
+					begin
+						change<=money_in-10;
+						ticket<=7;
+					end
+				else if(source==2 && destination==4)
+					begin
+						change<=money_in-20;
+						ticket<=8;
+					end
+				else if(source==2 && destination==5)
+					begin
+						change<=money_in-30;
+						ticket<=9;
+					end
+				else if(source==2 && destination==6)
+					begin
+						change<=money_in-40;
+						ticket<=10;
+					end
+				else if(source==3 && destination==1)
+					begin
+						change<=money_in-20;
+						ticket<=11;
+					end
+				else if(source==3 && destination==2)
+					begin
+						change<=money_in-10;
+						ticket<=12;
+					end
+				else if(source==3 && destination==3)
+					begin
+						change<=money_in;
+						ticket<=0;
+					end
+				else if(source==3 && destination==4)
+					begin
+						change<=money_in-10;
+						ticket<=13;
+					end
+				else if(source==3 && destination==5)
+					begin
+						change<=money_in-20;
+						ticket<=14;
+					end
+				else if(source==3 && destination==6)
+					begin
+						change<=money_in-30;
+						ticket<=15;
+					end
+				else if(source==4 && destination==1)
+					begin
+						change<=money_in-30;
+						ticket<=16;
+					end
+				else if(source==4 && destination==2)
+					begin
+						change<=money_in-20;
+						ticket<=17;
+					end
+				else if(source==4 && destination==3)
+					begin
+						change<=money_in-10;
+						ticket<=18;
+					end
+				else if(source==4 && destination==4)
+					begin
+						change<=money_in;
+						ticket<=0;
+					end
+				else if(source==4 && destination==5)
+					begin
+						change<=money_in-10;
+						ticket<=19;
+					end
+				else if(source==4 && destination==6)
+					begin
+						change<=money_in-20;
+						ticket<=20;
+					end
+				else if(source==5 && destination==1)
+					begin
+						change<=money_in-40;
+						ticket<=21;
+					end
+				else if(source==5 && destination==2)
+					begin
+						change<=money_in-30;
+						ticket<=22;
+					end
+				else if(source==5 && destination==3)
+					begin
+						change<=money_in-20;
+						ticket<=23;
+					end
+				else if(source==5 && destination==4)
+					begin
+						change<=money_in-10;
+						ticket<=24;
+					end
+				else if(source==5 && destination==5)
+					begin
+						change<=money_in;
+						ticket<=0;
+					end
+				else if(source==5 && destination==6)
+					begin
+						change<=money_in-10;
+						ticket<=25;
+					end
+				else if(source==6 && destination==1)
+					begin
+						change<=money_in-50;
+						ticket<=26;
+					end
+				else if(source==6 && destination==2)
+					begin
+						change<=money_in-40;
+						ticket<=27;
+					end
+				else if(source==6 && destination==3)
+					begin
+						change<=money_in-30;
+						ticket<=28;
+					end
+				else if(source==6 && destination==4)
+					begin
+						change<=money_in-20;
+						ticket<=29;
+					end
+				else if(source==6 && destination==5)
+					begin
+						change<=money_in-10;
+						ticket<=30;
+					end
+				else if(source==6 && destination==6)
+					begin
+						change<=money_in;
+						ticket<=0;
+					end
+				else 
+					begin
+						change<=money_in;
+						ticket<=0;
+					end
+			end
+	end
+
+
+endmodule
